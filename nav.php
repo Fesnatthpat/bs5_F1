@@ -5,14 +5,20 @@
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+        <li><a href="#" class="nav-link px-2 link-primary">Features</a></li>
+        <li><a href="#" class="nav-link px-2 link-primary">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 link-primary">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 link-primary">About</a></li>
     </ul>
 
     <div class="col-md-3 text-end">
-        <a href="login.php" type="button" class="btn btn-outline-primary me-2">Sign-In</a>
-        <a href="register.php" type="button" class="btn btn-outline-primary me-2">Sign-Up</a>
+        <?php if (!isset($_SESSION['user_id'])) { ?>
+            <a href="login.php" type="button" class="btn btn-outline-primary me-2">Sign-In</a>
+            <a href="register.php" type="button" class="btn btn-outline-primary me-2">Sign-Up</a>
+
+
+        <?php } else { ?>
+            <a href="logout.php" type="button" class="btn btn-outline-danger me-2">Logout</a>
+        <?php } ?>
     </div>
 </header>

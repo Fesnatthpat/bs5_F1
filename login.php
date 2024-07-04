@@ -26,6 +26,16 @@ session_start();
                 <form action="login_db.php" method="post">
                     <h1 class="h3 mb-3 fw-normal">sign in</h1>
 
+                    <?php if (isset($_SESSION['error'])) { ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
+
+                            ?>
+                        </div>
+                    <?php } ?>
+
                     <div class="form-floating">
                         <input type="email" class="form-control my-2" name="email" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Email address</label>

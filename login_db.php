@@ -23,6 +23,14 @@ if (empty($email)) {
         $stmt->execute([$email]);
         $userData = $stmt->fetch();
 
+        if ($userData && password_verify($password, $userData['password'])) {
+            $_SESSION['user_id'] = $userData['id'];
+            header("Location: dashboard.php");
+        } else {
+            $_SESSION['error'] = "Invalid email or password";
+            header("Location: login.php");
+        }
+
     } catch (PDOException $e) {
         $_SESSION['error'] = "Something went wrong please try again";
         header("Location: login.php");
