@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -22,9 +22,29 @@ session_start();
     <div class="container">
         <?php include("nav.php") ?>
         <main class="form-signin w-100 m-auto my-5">
-            <form action="register.php" method="POST">
+            <form action="register_db.php" method="POST">
                 <div class="card card-body shadow-sm">
                     <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
+
+                    <?php if (isset($_SESSION['success'])) { ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php
+                            echo $_SESSION['success'];
+                            unset($_SESSION['success']);
+
+                            ?>
+                        </div>
+                    <?php } ?>
+
+                    <?php if (isset($_SESSION['error'])) { ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
+
+                            ?>
+                        </div>
+                    <?php } ?>
 
                     <div class="form-floating">
                         <input type="text" class="form-control my-2" name="username" placeholder="Enter your username">
@@ -48,7 +68,7 @@ session_start();
 
                     <button class="w-100 btn btn-lg btn-primary" name="register" type="submit">Sign in</button>
                 </div>
-                <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+                <!-- <p class="mt-5 mb-3 text-muted">© 2017–2022</p> -->
             </form>
         </main>
 

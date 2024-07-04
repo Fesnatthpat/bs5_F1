@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -17,20 +23,20 @@
 
         <main class="form-signin w-100 m-auto my-5">
             <div class="card card-body shadow-md">
-                <form>
+                <form action="login_db.php" method="post">
                     <h1 class="h3 mb-3 fw-normal">sign in</h1>
 
                     <div class="form-floating">
-                        <input type="email" class="form-control my-2" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" class="form-control my-2" name="email" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Email address</label>
                     </div>
 
                     <div class="form-floating">
-                        <input type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control my-2" name="password" id="floatingPassword" placeholder="Password">
                         <label for="floatingPassword">Password</label>
                     </div>
 
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                    <button class="w-100 btn btn-lg btn-primary" name="login" type="submit">Sign in</button>
                 </form>
             </div>
         </main>
